@@ -1,6 +1,7 @@
 import pygame, sys
 from settings import *
 from player import *
+from aliens import *
 import wall
 
 
@@ -20,6 +21,10 @@ class Game:
         # self.multiple_obstacles(x_start, y_start, offset_x)
         # the * before self_obstacle_x_pos means that we're unpacking the list created.
 
+        # Aliens!
+        self.aliens = pygame.sprite.Group()
+        self.aliens_setup(rows=1, cols=1)
+
     def create_obstacle(self, x_start, y_start, offset_x):
         for row_index, row in enumerate(self.shape):
             for col_index, col in enumerate(row):
@@ -33,11 +38,20 @@ class Game:
         for offset_x in offset:
             self.create_obstacle(x_start, y_start, offset_x)
 
+    def aliens_setup(self, rows, cols, x_distance=120, y_distance=80):
+        for row_index, row in enumerate(range(rows)):
+            for col_index, col in enumerate(range(cols)):
+                x = col_index * x_distance
+                y = row_index * y_distance
+                aliens_sprite = Alien('red', x, y)
+                self.aliens.add(aliens_sprite)
+
     def run(self):
         self.player.update()
         self.player.sprite.lasers.draw(screen)
         self.player.draw(screen)
         self.blocks.draw(screen)
+        self.aliens.draw(screen)
     # Update all sprite groups
     # Draw all sprite groups
 
