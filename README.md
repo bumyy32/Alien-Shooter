@@ -1,2 +1,2 @@
 # Alien-Shooter
- A alien shooter using pygame!
+ An alien shooter using pygame!
