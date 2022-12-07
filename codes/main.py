@@ -16,8 +16,9 @@ class Game:
         self.blocks = pygame.sprite.Group()
         self.obstacle_amount = 7
         self.obstacle_x_positions = [num * (screen_width / self.obstacle_amount) for num in range(self.obstacle_amount)]
-        self.multiple_obstacles(screen_width / 20, 600, *self.obstacle_x_positions)  # x_start, y_start, offset_x  // the * before
-        # self_obstacle_x_pos means that we're unpacking the list created.
+        self.multiple_obstacles(screen_width / 20, 600, *self.obstacle_x_positions)
+        # self.multiple_obstacles(x_start, y_start, offset_x)
+        # the * before self_obstacle_x_pos means that we're unpacking the list created.
 
     def create_obstacle(self, x_start, y_start, offset_x):
         for row_index, row in enumerate(self.shape):
