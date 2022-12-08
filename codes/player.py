@@ -12,7 +12,6 @@ class Player(pygame.sprite.Sprite):
         self.ready = True
         self.laser_time = 0
         self.laser_cooldown = 600
-
         self.lasers = pygame.sprite.Group()
 
     # key bindings
